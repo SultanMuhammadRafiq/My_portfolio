@@ -91,36 +91,3 @@ Example:
 
 
 
-
-
-
-## 🚀 Run Locally
-
-Clone the repository
-
-```bash
-git clone https://github.com/SultanMuhammadRafiq/My_portfolio.git
-```
-
-Open the project
-
-```bash
-cd My_portfolio
-```
-
-Run
-
-Simply open `index.html` in your browser.
-
-## 🤝 Connect With Me
-
-- LinkedIn: https://linkedin.com/in/your-linkedin
-- GitHub: https://github.com/SultanMuhammadRafiq
-
-## 📧 Contact
-
-For collaboration or professional opportunities, feel free to connect.
-
----
-
-⭐ If you like this project, please consider giving it a Star.
