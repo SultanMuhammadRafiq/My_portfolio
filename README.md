@@ -67,7 +67,7 @@ Alongside my procurement career, I am actively learning AI, Python, SAP, and web
 
 ## 🌍 Live Demo
 
-Add your deployed website here.
+Publish GitHub Pages link:
 
 Example:
 
