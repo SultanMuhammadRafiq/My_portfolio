@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sultan Muhammad Rafiq — Procurement &amp; AI-Assisted Systems</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#E7E9EC;
+    --paper-alt:#DCE0E5;
+    --card:#F5F6F4;
+    --ink:#152540;
+    --ink-soft:#4C5D74;
+    --rule:#B7BFC8;
+    --gold:#A8792F;
+    --stamp:#A23A2E;
+    --white:#FBFBF9;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3{
+    font-family:'Zilla Slab', serif;
+    font-weight:600;
+    color:var(--ink);
+    line-height:1.15;
+  }
+
+  .mono{
+    font-family:'IBM Plex Mono', monospace;
+  }
+
+  a{color:inherit;}
+
+  .wrap{
+    max-width:880px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(231,233,236,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--rule);
+  }
+  nav .wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    height:64px;
+  }
+  .nav-name{
+    font-family:'Zilla Slab', serif;
+    font-weight:600;
+    font-size:1.05rem;
+    letter-spacing:0.01em;
+  }
+  .nav-links{
+    display:flex;
+    gap:22px;
+    list-style:none;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+  }
+  .nav-links a{
+    text-decoration:none;
+    color:var(--ink-soft);
+    border-bottom:1px solid transparent;
+    padding-bottom:2px;
+    transition:color .15s ease, border-color .15s ease;
+  }
+  .nav-links a:hover, .nav-links a:focus-visible{
+    color:var(--stamp);
+    border-color:var(--stamp);
+  }
+  .nav-toggle{display:none;}
+
+  @media (max-width:640px){
+    .nav-links{display:none;}
+  }
+
+  /* ---------- HERO ---------- */
+  header.hero{
+    padding:88px 0 72px;
+    position:relative;
+    overflow:hidden;
+  }
+  .doc-ref{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.75rem;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+    margin-bottom:28px;
+    border-top:1px solid var(--rule);
+    border-bottom:1px solid var(--rule);
+    padding:10px 0;
+  }
+  .doc-ref span{white-space:nowrap;}
+  .doc-ref b{color:var(--ink);font-weight:600;}
+
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:32px;
+    align-items:start;
+  }
+
+  h1.title{
+    font-size:clamp(2.1rem, 5vw, 3.1rem);
+    max-width:11.5ch;
+    letter-spacing:-0.01em;
+  }
+  h1.title em{
+    font-style:normal;
+    color:var(--gold);
+  }
+
+  .tagline{
+    margin-top:12px;
+    font-family:'Zilla Slab', serif;
+    font-size:1.3rem;
+    font-weight:500;
+    color:var(--ink-soft);
+    max-width:26ch;
+  }
+  .tagline em{
+    font-style:normal;
+    color:var(--gold);
+  }
+
+  .role-line{
+    margin-top:16px;
+    font-size:1.05rem;
+    color:var(--ink-soft);
+    max-width:52ch;
+  }
+
+  .hero-lede{
+    margin-top:22px;
+    font-size:1rem;
+    color:var(--ink-soft);
+    max-width:56ch;
+  }
+
+  .hero-actions{
+    margin-top:32px;
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:12px 22px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    text-decoration:none;
+    border-radius:2px;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn-primary{
+    background:var(--ink);
+    color:var(--white);
+  }
+  .btn-secondary{
+    background:transparent;
+    color:var(--ink);
+    border:1px solid var(--rule);
+  }
+  .btn:hover, .btn:focus-visible{
+    transform:translateY(-2px);
+  }
+  .btn-primary:hover{box-shadow:0 6px 0 0 var(--gold);}
+  .btn-secondary:hover{box-shadow:0 6px 0 0 var(--rule);}
+
+  /* stamp — signature element */
+  .stamp{
+    width:126px;
+    height:126px;
+    border:2.5px dashed var(--stamp);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transform:rotate(-9deg);
+    flex-shrink:0;
+    margin-top:6px;
+  }
+  .stamp-inner{
+    width:100px;
+    height:100px;
+    border:1px solid var(--stamp);
+    border-radius:50%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:var(--stamp);
+    font-family:'IBM Plex Mono', monospace;
+    text-transform:uppercase;
+  }
+  .stamp-inner .big{
+    font-size:1.5rem;
+    font-weight:600;
+    line-height:1;
+  }
+  .stamp-inner .small{
+    font-size:0.52rem;
+    letter-spacing:0.08em;
+    margin-top:4px;
+  }
+
+  @media (max-width:640px){
+    .hero-grid{grid-template-columns:1fr;}
+    .stamp{margin-top:24px;}
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{
+    padding:64px 0;
+    border-top:1px solid var(--rule);
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:10px;
+  }
+  h2.sec-title{
+    font-size:clamp(1.5rem, 3.4vw, 1.9rem);
+    margin-bottom:28px;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-text{
+    max-width:64ch;
+    font-size:1rem;
+    color:var(--ink-soft);
+  }
+  .about-text p + p{margin-top:16px;}
+  .about-text strong{color:var(--ink);}
+
+  /* ---------- EXPERTISE — line-item table ---------- */
+  .po-table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:0.92rem;
+  }
+  .po-table thead th{
+    text-align:left;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.68rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    padding:0 14px 10px;
+    border-bottom:1px solid var(--ink);
+  }
+  .po-table tbody td{
+    padding:16px 14px;
+    border-bottom:1px solid var(--rule);
+    vertical-align:top;
+  }
+  .po-table tbody tr:hover{background:var(--card);}
+  .item-no{
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--ink-soft);
+    width:2.4em;
+  }
+  .item-name{
+    font-weight:600;
+    width:34%;
+  }
+  .item-value{
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--gold);
+    white-space:nowrap;
+    text-align:right;
+    font-weight:600;
+  }
+
+  @media (max-width:640px){
+    .po-table thead{display:none;}
+    .po-table, .po-table tbody, .po-table tr, .po-table td{display:block;width:100%;}
+    .po-table tbody tr{
+      border-bottom:1px solid var(--rule);
+      padding:14px 0;
+    }
+    .po-table tbody td{border:none;padding:3px 0;}
+    .item-name{font-size:1rem;}
+    .item-value{text-align:left;margin-top:4px;}
+  }
+
+  /* ---------- PROJECT / WORKFLOW ---------- */
+  .project-card{
+    background:var(--card);
+    border:1px solid var(--rule);
+    border-radius:4px;
+    padding:32px;
+  }
+  .project-card h3{
+    font-size:1.3rem;
+    margin-bottom:8px;
+  }
+  .project-card .desc{
+    color:var(--ink-soft);
+    max-width:60ch;
+    margin-bottom:28px;
+  }
+
+  .flow{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:0;
+    margin-bottom:26px;
+  }
+  .flow-step{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:var(--white);
+    border:1px solid var(--rule);
+    border-radius:3px;
+    padding:9px 14px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.76rem;
+    color:var(--ink);
+  }
+  .flow-step .n{
+    color:var(--gold);
+    font-weight:600;
+  }
+  .flow-arrow{
+    color:var(--ink-soft);
+    padding:0 8px;
+    font-size:0.9rem;
+  }
+
+  .feature-chips{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .chip{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.02em;
+    background:transparent;
+    border:1px solid var(--ink-soft);
+    color:var(--ink-soft);
+    padding:6px 12px;
+    border-radius:2px;
+  }
+
+  /* ---------- SKILLS ---------- */
+  .skills-wrap{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .skill-tag{
+    font-size:0.85rem;
+    background:var(--white);
+    border:1px solid var(--rule);
+    padding:8px 14px;
+    border-radius:20px;
+    color:var(--ink);
+  }
+
+  /* ---------- BACKGROUND / TIMELINE ---------- */
+  .timeline-summary{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:24px;
+    margin-top:10px;
+  }
+  .tl-stat{
+    border-left:2px solid var(--gold);
+    padding-left:16px;
+  }
+  .tl-stat .num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:1.8rem;
+    font-weight:600;
+    color:var(--ink);
+  }
+  .tl-stat .label{
+    font-size:0.82rem;
+    color:var(--ink-soft);
+    margin-top:4px;
+  }
+  @media (max-width:640px){
+    .timeline-summary{grid-template-columns:1fr;gap:20px;}
+  }
+
+  /* ---------- CONTACT / FOOTER ---------- */
+  footer{
+    padding:64px 0 48px;
+    border-top:1px solid var(--rule);
+  }
+  .footer-grid{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    flex-wrap:wrap;
+    gap:36px;
+  }
+  .contact-list{
+    list-style:none;
+    font-size:0.95rem;
+  }
+  .contact-list li{margin-bottom:8px;}
+  .contact-list a{
+    text-decoration:none;
+    border-bottom:1px solid var(--rule);
+    transition:border-color .15s ease, color .15s ease;
+  }
+  .contact-list a:hover, .contact-list a:focus-visible{
+    color:var(--stamp);
+    border-color:var(--stamp);
+  }
+  .footer-note{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem;
+    color:var(--ink-soft);
+    letter-spacing:0.04em;
+    margin-top:36px;
+    border-top:1px solid var(--rule);
+    padding-top:18px;
+  }
+
+  /* reveal-on-scroll */
+  .reveal{
+    opacity:0;
+    transform:translateY(14px);
+    transition:opacity .6s ease, transform .6s ease;
+  }
+  .reveal.in{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .reveal{opacity:1;transform:none;transition:none;}
+    .btn:hover{transform:none;}
+  }
+
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--stamp);
+    outline-offset:3px;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="nav-name">S. M. Rafiq</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#project">Project</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="https://github.com/SultanMuhammadRafiq" target="_blank" rel="noopener">GitHub</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="doc-ref">
+      <span>Ref No. <b>PR-2026-SMR</b></span>
+      <span>Issued <b>Karachi, Pakistan</b></span>
+      <span>Status <b>Open to opportunities</b></span>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <h1 class="title">Sultan Muhammad Rafiq</h1>
+        <p class="tagline">Procurement leadership, <em>rebuilt as software.</em></p>
+        <p class="role-line">Procurement Operations Specialist — 18+ years in strategic sourcing and supply chain, now prototyping AI-assisted procurement systems.</p>
+        <p class="hero-lede">Two decades of running requisitions, purchase orders, and vendor negotiations by hand taught me exactly where procurement workflows break. I now build the systems that fix it.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#project">View the ERP prototype</a>
+          <a class="btn btn-secondary" href="https://github.com/SultanMuhammadRafiq" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn btn-secondary" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <div class="stamp" aria-hidden="true">
+        <div class="stamp-inner">
+          <span class="big">12%</span>
+          <span class="small">Cost&nbsp;Savings<br>Approved</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap reveal">
+    <div class="eyebrow">01 — About</div>
+    <h2 class="sec-title">From full-cycle procurement to full-stack prototyping</h2>
+    <div class="about-text">
+      <p>I've spent <strong>18+ years</strong> managing full-cycle supply chain operations — from strategic sourcing through Procure-to-Pay — in fast-paced manufacturing environments. Along the way I've delivered up to <strong>12% cost savings</strong>, optimized supplier performance, and kept delivery <strong>on-time, in-full (OTIF)</strong> under real production pressure.</p>
+      <p>My focus has always been turning procurement from a cost center into a strategic value driver — building high-performing teams, implementing robust processes, and forging long-term supplier partnerships. Lately, that's meant something new: using AI-assisted development to turn hard-won process knowledge into working software.</p>
+    </div>
+  </div>
+</section>
+
+<section id="expertise">
+  <div class="wrap reveal">
+    <div class="eyebrow">02 — Core Expertise</div>
+    <h2 class="sec-title">Line items from the job</h2>
+    <table class="po-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Area</th>
+          <th>Description</th>
+          <th style="text-align:right;">Impact</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="item-no mono">01</td>
+          <td class="item-name">Strategic Cost Management</td>
+          <td>Vendor negotiation and sourcing initiatives that cut costs at scale</td>
+          <td class="item-value">−12% avg.</td>
+        </tr>
+        <tr>
+          <td class="item-no mono">02</td>
+          <td class="item-name">Team Leadership</td>
+          <td>Led and mentored procurement teams across cross-functional projects</td>
+          <td class="item-value">4 roles</td>
+        </tr>
+        <tr>
+          <td class="item-no mono">03</td>
+          <td class="item-name">Process &amp; Systems</td>
+          <td>Streamlined workflows using Oracle ERP and specialized procurement tools</td>
+          <td class="item-value">Oracle ERP</td>
+        </tr>
+        <tr>
+          <td class="item-no mono">04</td>
+          <td class="item-name">Supplier Relationship Mgmt</td>
+          <td>Built long-term vendor partnerships improving quality and compliance</td>
+          <td class="item-value">Ongoing</td>
+        </tr>
+        <tr>
+          <td class="item-no mono">05</td>
+          <td class="item-name">Supply Chain Coordination</td>
+          <td>Aligned procurement, production, quality, and logistics teams</td>
+          <td class="item-value">OTIF</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="project">
+  <div class="wrap reveal">
+    <div class="eyebrow">03 — Featured Project</div>
+    <h2 class="sec-title">AI-assisted Procurement ERP prototype</h2>
+    <div class="project-card">
+      <h3>Requisition-to-payment, end to end</h3>
+      <p class="desc">A working prototype covering the full procurement cycle — built by pairing 18 years of process expertise with AI-assisted development to model exactly how a purchase should move through an organization.</p>
+
+      <div class="flow" aria-label="Workflow steps">
+        <div class="flow-step"><span class="n">1</span> Item Code Opening</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step"><span class="n">2</span> Indent</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step"><span class="n">3</span> Purchase Requisition</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step"><span class="n">4</span> PO Create</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step"><span class="n">5</span> GRN</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step"><span class="n">6</span> Payment Tracking</div>
+      </div>
+
+      <div class="feature-chips">
+        <span class="chip">Role-based approval workflows</span>
+        <span class="chip">Procurement analytics &amp; reporting</span>
+        <span class="chip">Last buying history</span>
+        <span class="chip">Market trend tracking</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap reveal">
+    <div class="eyebrow">04 — Skills</div>
+    <h2 class="sec-title">Toolkit</h2>
+    <div class="skills-wrap">
+      <span class="skill-tag">Procurement &amp; Sourcing</span>
+      <span class="skill-tag">RFQ / PO / GRN</span>
+      <span class="skill-tag">Vendor Development</span>
+      <span class="skill-tag">Global Sourcing</span>
+      <span class="skill-tag">Oracle ERP</span>
+      <span class="skill-tag">Supply Chain &amp; Logistics</span>
+      <span class="skill-tag">OTIF Delivery</span>
+      <span class="skill-tag">Import / Export</span>
+      <span class="skill-tag">Team Leadership &amp; KPIs</span>
+      <span class="skill-tag">AI-Assisted Workflow Development</span>
+    </div>
+  </div>
+</section>
+
+<section id="background">
+  <div class="wrap reveal">
+    <div class="eyebrow">05 — Background</div>
+    <h2 class="sec-title">By the numbers</h2>
+    <div class="timeline-summary">
+      <div class="tl-stat">
+        <div class="num">18+</div>
+        <div class="label">Years in strategic sourcing &amp; procurement</div>
+      </div>
+      <div class="tl-stat">
+        <div class="num">4</div>
+        <div class="label">Roles across 2 companies</div>
+      </div>
+      <div class="tl-stat">
+        <div class="num">12%</div>
+        <div class="label">Cost savings delivered</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap reveal">
+    <div class="eyebrow">06 — Contact</div>
+    <div class="footer-grid">
+      <div>
+        <h2 class="sec-title" style="margin-bottom:18px;">Let's talk procurement, or the systems behind it.</h2>
+        <ul class="contact-list">
+          <li>Email: <a href="mailto:Sultanrafiq1987@gmail.com">Sultanrafiq1987@gmail.com</a></li>
+          <li>Phone: <a href="tel:+923219032170">+92 321 9032170</a></li>
+          <li>LinkedIn: <a href="https://linkedin.com/in/sultan-muhammad-bba98958" target="_blank" rel="noopener">linkedin.com/in/sultan-muhammad-bba98958</a></li>
+          <li>GitHub: <a href="https://github.com/SultanMuhammadRafiq" target="_blank" rel="noopener">github.com/SultanMuhammadRafiq</a></li>
+          <li>Location: Karachi, Pakistan</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-note">Document ends — Sultan Muhammad Rafiq · Procurement Operations Specialist</div>
+  </div>
+</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, {threshold:0.12});
+    revealEls.forEach(el=>io.observe(el));
+  } else {
+    revealEls.forEach(el=>el.classList.add('in'));
+  }
+</script>
+
+</body>
+</html>

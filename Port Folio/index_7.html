@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Sultan Muhammad — Senior Procurement &amp; Supply Chain Leader with 18 years in textile manufacturing. RFQ management, vendor development, contract negotiation, and up to 12% cost savings through strategic sourcing." />
+<meta name="theme-color" content="#0F3D63" />
+<title>Sultan Muhammad — Procurement &amp; Supply Chain Leader</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%230F3D63'/%3E%3Ctext x='50' y='66' font-family='Georgia,serif' font-size='52' font-weight='700' fill='white' text-anchor='middle'%3ESM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F6F8FA;
+    --bg-panel:#FFFFFF;
+    --bg-panel-alt:#EEF3F8;
+    --accent:#0F3D63;
+    --accent-soft:rgba(15,61,99,0.07);
+    --teal:#1E7A6D;
+    --text:#152534;
+    --text-muted:#5C6B7A;
+    --border:rgba(15,61,99,0.13);
+    --text-soft:#3E4E5E;
+    --grid-line:rgba(15,61,99,0.04);
+    --glow-teal:rgba(30,122,109,0.07);
+    --glow-accent:rgba(15,61,99,0.06);
+    --font-display:'Oswald',Impact,'Arial Narrow',sans-serif;
+    --font-body:'Inter',system-ui,-apple-system,sans-serif;
+    --font-mono:'IBM Plex Mono','Courier New',monospace;
+  }
+  [data-theme="dark"]{
+    --bg:#0B1420;
+    --bg-panel:#101C2C;
+    --bg-panel-alt:#0E1B2A;
+    --accent:#5B9BD5;
+    --accent-soft:rgba(91,155,213,0.10);
+    --teal:#3FBBA6;
+    --text:#E7EEF5;
+    --text-muted:#8FA1B3;
+    --border:rgba(91,155,213,0.18);
+    --text-soft:#B7C3D0;
+    --grid-line:rgba(91,155,213,0.05);
+    --glow-teal:rgba(63,187,166,0.09);
+    --glow-accent:rgba(91,155,213,0.08);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--font-body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    transition:background 0.25s ease,color 0.25s ease;
+  }
+  :focus-visible{outline:2px solid var(--teal);outline-offset:2px;}
+  .skip-link{
+    position:absolute;left:-999px;top:0;background:var(--accent);color:#fff;
+    padding:10px 16px;z-index:100;border-radius:0 0 4px 0;
+  }
+  .skip-link:focus{left:0;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px;}
+
+  /* animated grid texture backdrop */
+  body::before{
+    content:"";
+    position:fixed;inset:-48px;z-index:-2;
+    background-image:
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size:48px 48px;
+    animation:gridDrift 50s linear infinite;
+  }
+  /* slow-moving "route" glow, echoes the shipping-route motif */
+  body::after{
+    content:"";
+    position:fixed;inset:-20%;z-index:-1;pointer-events:none;
+    background:
+      radial-gradient(480px circle at 15% 20%, var(--glow-teal), transparent 60%),
+      radial-gradient(560px circle at 85% 75%, var(--glow-accent), transparent 60%);
+    animation:routeDrift 34s ease-in-out infinite alternate;
+  }
+  @keyframes gridDrift{
+    from{background-position:0 0,0 0;}
+    to{background-position:48px 48px,48px 48px;}
+  }
+  @keyframes routeDrift{
+    0%{transform:translate(-3%,-2%);}
+    50%{transform:translate(3%,2%);}
+    100%{transform:translate(-2%,3%);}
+  }
+
+  /* drifting cargo particles */
+  .bg-particles{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;}
+  .particle{
+    position:absolute;bottom:-40px;
+    background:var(--teal);opacity:0;border-radius:1.5px;
+    animation-name:floatUp;animation-timing-function:linear;animation-iteration-count:infinite;
+  }
+  .particle.dot{border-radius:50%;background:var(--accent);}
+  @keyframes floatUp{
+    0%{transform:translateY(0) rotate(0deg);opacity:0;}
+    8%{opacity:0.45;}
+    92%{opacity:0.45;}
+    100%{transform:translateY(-112vh) rotate(90deg);opacity:0;}
+  }
+
+  /* NAV */
+  #nav{
+    position:sticky;top:0;z-index:50;
+    background:var(--bg);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  #nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:600;letter-spacing:0.5px;}
+  .brand-mark{
+    width:34px;height:34px;border:1.5px solid var(--accent);border-radius:2px;
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--font-mono);font-size:12px;color:var(--accent);font-weight:600;
+    transform:rotate(-3deg);
+  }
+  .nav-links{display:flex;gap:28px;font-size:13px;font-weight:600;letter-spacing:0.4px;text-transform:uppercase;}
+  .nav-links a{color:var(--text-muted);transition:color 0.15s;}
+  .nav-links a:hover{color:var(--accent);}
+  .nav-toggle{display:none;background:none;border:1px solid var(--border);color:var(--text);width:38px;height:38px;border-radius:4px;font-size:16px;cursor:pointer;}
+  .theme-toggle{background:none;border:1px solid var(--border);color:var(--accent);width:38px;height:38px;border-radius:4px;font-size:15px;cursor:pointer;transition:border-color 0.15s;}
+  .theme-toggle:hover{border-color:var(--accent);}
+
+  /* HERO */
+  #hero{padding:88px 0 64px;position:relative;}
+  .hero-top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;}
+  .hero-copy{flex:1;min-width:0;}
+  .stamp{
+    flex-shrink:0;width:112px;height:112px;border-radius:50%;
+    border:2px solid var(--teal);display:flex;align-items:center;justify-content:center;
+    transform:rotate(-8deg);position:relative;
+  }
+  .stamp::before{
+    content:"";position:absolute;inset:6px;border:1px dashed var(--teal);border-radius:50%;opacity:0.5;
+  }
+  .stamp-inner{text-align:center;}
+  .stamp-mono{font-family:var(--font-mono);font-size:10px;letter-spacing:1.5px;color:var(--teal);text-transform:uppercase;}
+  .stamp-init{font-family:var(--font-display);font-size:26px;font-weight:700;color:var(--teal);letter-spacing:1px;}
+  @media (max-width:560px){ .stamp{width:80px;height:80px;} .stamp-init{font-size:19px;} .stamp-mono{font-size:8px;} }
+  .eyebrow{
+    font-family:var(--font-mono);font-size:12px;letter-spacing:2px;text-transform:uppercase;
+    color:var(--accent);margin-bottom:18px;display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:"";width:24px;height:1px;background:var(--accent);}
+  h1{
+    font-family:var(--font-display);
+    font-size:clamp(40px,7vw,72px);
+    font-weight:700;
+    letter-spacing:-0.5px;
+    line-height:1.02;
+    margin-bottom:16px;
+  }
+  .lede{
+    font-size:18px;color:var(--text-muted);max-width:560px;margin-bottom:36px;
+  }
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:52px;}
+  .btn{
+    font-family:var(--font-body);font-weight:600;font-size:14px;
+    padding:12px 22px;border-radius:3px;border:1px solid transparent;
+    transition:all 0.15s;display:inline-flex;align-items:center;gap:8px;
+  }
+  .btn-primary{background:var(--accent);color:#FFFFFF;}
+  .btn-primary:hover{background:#0B2E4B;}
+  .btn-ghost{border-color:var(--border);color:var(--text);}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
+
+  /* MANIFEST STAT STRIP */
+  .manifest{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    border:1px solid var(--border);border-radius:4px;overflow:hidden;
+  }
+  .manifest-cell{
+    padding:18px 16px;border-right:1px solid var(--border);background:var(--bg-panel);
+    position:relative;
+  }
+  .manifest-cell:last-child{border-right:none;}
+  .manifest-num{font-family:var(--font-mono);font-size:26px;font-weight:600;color:var(--teal);}
+  .manifest-label{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;margin-top:4px;}
+
+  /* SECTION SHARED */
+  section{padding:64px 0;border-top:1px solid var(--border);}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:36px;}
+  .sec-index{font-family:var(--font-mono);color:var(--accent);font-size:13px;}
+  h2{font-family:var(--font-display);font-size:28px;font-weight:600;letter-spacing:0.3px;}
+
+  /* ABOUT */
+  #about p{font-size:16px;color:var(--text-soft);max-width:640px;}
+
+  /* CAREER ROUTE — shipping manifest timeline */
+  .route{position:relative;padding-left:28px;}
+  .route::before{
+    content:"";position:absolute;left:5px;top:6px;bottom:6px;width:2px;
+    background:repeating-linear-gradient(to bottom, var(--accent) 0 6px, transparent 6px 12px);
+  }
+  .stop{position:relative;padding-bottom:38px;}
+  .stop:last-child{padding-bottom:0;}
+  .stop::before{
+    content:"";position:absolute;left:-28px;top:4px;width:11px;height:11px;
+    border-radius:50%;background:var(--bg);border:2px solid var(--accent);
+  }
+  .stop-meta{
+    display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+    font-family:var(--font-mono);font-size:12px;color:var(--accent);margin-bottom:6px;letter-spacing:0.3px;
+  }
+  .stop-meta .dates{color:var(--text-muted);}
+  .stop h3{font-size:18px;font-weight:600;margin-bottom:3px;}
+  .stop .company{font-size:13px;color:var(--text-muted);margin-bottom:10px;}
+  .stop ul{padding-left:18px;color:var(--text-soft);font-size:14px;}
+  .stop li{margin-bottom:4px;}
+
+  /* PROJECTS — case files */
+  .case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .case-card:nth-child(4){grid-column:1/-1;}
+  .case-card{
+    background:var(--bg-panel);border:1px solid var(--border);border-radius:4px;
+    padding:20px;display:flex;flex-direction:column;gap:10px;position:relative;
+  }
+  .case-id{
+    font-family:var(--font-mono);font-size:11px;color:var(--teal);letter-spacing:1px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .case-id .badge{
+    border:1px solid var(--teal);color:var(--teal);padding:2px 7px;border-radius:10px;font-size:10px;
+  }
+  .case-card h3{font-size:16.5px;font-weight:600;line-height:1.3;}
+  .case-row{font-size:13px;color:var(--text-soft);}
+  .case-row b{
+    display:block;font-family:var(--font-mono);font-size:10px;text-transform:uppercase;
+    letter-spacing:1px;color:var(--accent);margin-bottom:3px;font-weight:600;
+  }
+  .case-result{
+    margin-top:auto;padding-top:10px;border-top:1px dashed var(--border);
+    font-family:var(--font-mono);font-size:13px;color:var(--teal);font-weight:600;
+  }
+
+  /* SKILLS */
+  .skill-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+  .skill-card{background:var(--bg-panel);border:1px solid var(--border);border-radius:4px;padding:18px 20px;}
+  .skill-card h4{
+    font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:1px;
+    color:var(--accent);margin-bottom:12px;
+  }
+  .tag-row{display:flex;flex-wrap:wrap;gap:7px;}
+  .tag{
+    font-size:12.5px;background:var(--accent-soft);border:1px solid rgba(15,61,99,0.22);
+    color:var(--accent);padding:5px 10px;border-radius:20px;
+  }
+
+  /* ACHIEVEMENTS */
+  .ach-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+  .ach-card{
+    background:var(--bg-panel-alt);border-left:3px solid var(--teal);border-radius:0 4px 4px 0;
+    padding:18px 20px;
+  }
+  .ach-card p{font-size:14px;color:var(--text-soft);}
+
+  /* EDUCATION */
+  .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
+  .edu-col h4{font-family:var(--font-mono);font-size:11px;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;}
+  .edu-item{margin-bottom:14px;font-size:14px;}
+  .edu-item .deg{font-weight:600;color:var(--text);}
+  .edu-item .inst{color:var(--text-muted);font-size:13px;}
+
+  /* CONTACT / FOOTER */
+  #contact{text-align:center;}
+  #contact h2{margin-bottom:12px;}
+  #contact p{color:var(--text-muted);max-width:480px;margin:0 auto 32px;}
+  .contact-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:820px;margin:0 auto;
+  }
+  .contact-card{
+    background:var(--bg-panel);border:1px solid var(--border);border-radius:4px;
+    padding:18px 14px;font-size:13px;transition:border-color 0.15s;
+  }
+  .contact-card:hover{border-color:var(--accent);}
+  .contact-card .k{font-family:var(--font-mono);font-size:10px;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;}
+  footer{padding:32px 0;text-align:center;color:var(--text-muted);font-size:12px;border-top:1px solid var(--border);}
+
+  /* reveal animation */
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity 0.6s ease,transform 0.6s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+    html{scroll-behavior:auto;}
+    body::before,body::after{animation:none;}
+    .particle{display:none;}
+  }
+
+  /* MOBILE */
+  @media (max-width:720px){
+    .nav-links{
+      position:fixed;top:64px;left:0;right:0;background:var(--bg-panel);
+      flex-direction:column;padding:20px 24px;gap:18px;
+      border-bottom:1px solid var(--border);
+      transform:translateY(-120%);transition:transform 0.2s ease;
+    }
+    .nav-links.open{transform:translateY(0);}
+    .nav-toggle{display:block;}
+    .manifest{grid-template-columns:repeat(2,1fr);}
+    .manifest-cell:nth-child(2){border-right:none;}
+    .manifest-cell:nth-child(3),.manifest-cell:nth-child(4){border-top:1px solid var(--border);}
+    .skill-grid,.ach-grid,.edu-grid,.case-grid{grid-template-columns:1fr;}
+    .hero-top{flex-direction:column-reverse;align-items:flex-start;}
+    .contact-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+<div class="bg-particles" aria-hidden="true">
+  <span class="particle" style="left:6%;width:5px;height:5px;animation-duration:26s;animation-delay:-2s;"></span>
+  <span class="particle dot" style="left:16%;width:4px;height:4px;animation-duration:32s;animation-delay:-14s;"></span>
+  <span class="particle" style="left:28%;width:7px;height:7px;animation-duration:22s;animation-delay:-8s;"></span>
+  <span class="particle dot" style="left:42%;width:3px;height:3px;animation-duration:38s;animation-delay:-20s;"></span>
+  <span class="particle" style="left:58%;width:5px;height:5px;animation-duration:29s;animation-delay:-5s;"></span>
+  <span class="particle dot" style="left:70%;width:4px;height:4px;animation-duration:34s;animation-delay:-24s;"></span>
+  <span class="particle" style="left:82%;width:6px;height:6px;animation-duration:24s;animation-delay:-11s;"></span>
+  <span class="particle dot" style="left:92%;width:4px;height:4px;animation-duration:30s;animation-delay:-17s;"></span>
+</div>
+<a class="skip-link" href="#about">Skip to content</a>
+
+<nav id="nav">
+  <div class="wrap">
+    <div class="brand"><span class="brand-mark">SM</span> Sultan Muhammad</div>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#route">Career</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">&#9789;</button>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">&#9776;</button>
+    </div>
+  </div>
+</nav>
+
+<header id="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <div class="hero-copy">
+        <div class="eyebrow reveal">Procurement &amp; Supply Chain</div>
+        <h1 class="reveal">Sultan Muhammad</h1>
+        <p class="lede reveal">18 years turning sourcing decisions into measurable margin — RFQ to payment, local markets to international freight. Based in Karachi, Pakistan.</p>
+      </div>
+      <div class="stamp reveal" aria-hidden="true">
+        <div class="stamp-inner">
+          <div class="stamp-mono">Verified</div>
+          <div class="stamp-init">SM</div>
+          <div class="stamp-mono">18 YRS</div>
+        </div>
+      </div>
+    </div>
+    <div class="cta-row reveal">
+      <a class="btn btn-primary" href="mailto:Sultanrafiq1987@gmail.com">Email me</a>
+      <a class="btn btn-ghost" href="https://linkedin.com/in/sultan-muhammad-bba98958" target="_blank" rel="noopener">View LinkedIn</a>
+      <a class="btn btn-ghost" href="https://github.com/SultanMuhammadRafiq" target="_blank" rel="noopener">View GitHub</a>
+    </div>
+    <div class="manifest reveal">
+      <div class="manifest-cell"><div class="manifest-num">18</div><div class="manifest-label">Years Experience</div></div>
+      <div class="manifest-cell"><div class="manifest-num">12%</div><div class="manifest-label">Cost Savings</div></div>
+      <div class="manifest-cell"><div class="manifest-num">04</div><div class="manifest-label">Roles Held</div></div>
+      <div class="manifest-cell"><div class="manifest-num">OTIF</div><div class="manifest-label">Delivery Focus</div></div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-index">01</span><h2>About</h2></div>
+    <p class="reveal">Senior Procurement &amp; Supply Chain Leader with over 18 years in the textile manufacturing industry, specializing in local and international sourcing. Skilled in end-to-end procurement — RFQ management, vendor development, contract negotiation, GRN processing, and payment coordination — with a track record of up to 12% cost savings through strategic sourcing while maintaining OTIF delivery. Currently seeking a Procurement Manager role to drive cost optimization and supply chain excellence.</p>
+  </div>
+</section>
+
+<section id="route">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-index">02</span><h2>Career Route</h2></div>
+    <div class="route">
+
+      <div class="stop reveal">
+        <div class="stop-meta">FEB 2023 — PRESENT <span class="dates">· Karachi</span></div>
+        <h3>Senior Assistant Manager — Procurement</h3>
+        <div class="company">Utopia Industries · Trims &amp; Accessories</div>
+        <ul>
+          <li>Lead end-to-end sourcing of accessories &amp; packaging, running full RFQ-to-PO cycles through Oracle ERP</li>
+          <li>Negotiated supplier terms achieving up to 12% cost savings while sustaining OTIF delivery</li>
+          <li>Supervised procurement team, coordinated GRNs, invoices, and cross-functional production alignment</li>
+        </ul>
+      </div>
+
+      <div class="stop reveal">
+        <div class="stop-meta">SEP 2021 — JAN 2023 <span class="dates">· Karachi</span></div>
+        <h3>Assistant Manager — Procurement</h3>
+        <div class="company">Utopia Industries · Trims &amp; Accessories</div>
+        <ul>
+          <li>Managed strategic sourcing of critical raw materials — buttons, zippers, labels, tapes, laces</li>
+          <li>Implemented procurement policy and ethical sourcing standards across supplier base</li>
+          <li>Coached junior procurement staff and interns into a high-performing team</li>
+        </ul>
+      </div>
+
+      <div class="stop reveal">
+        <div class="stop-meta">SEP 2011 — AUG 2021 <span class="dates">· Karachi</span></div>
+        <h3>Senior Procurement Executive</h3>
+        <div class="company">Lucky Textile Mills</div>
+        <ul>
+          <li>Led procurement team delivery against company policy and quality standards, decade-long tenure</li>
+          <li>Negotiated key supplier contracts and resolved complex vendor disputes</li>
+          <li>Presented procurement strategy and market analysis to senior management</li>
+        </ul>
+      </div>
+
+      <div class="stop reveal">
+        <div class="stop-meta">AUG 2007 — AUG 2011 <span class="dates">· Hyderabad</span></div>
+        <h3>Production Coordinator</h3>
+        <div class="company">Lucky Textile Mills</div>
+        <ul>
+          <li>Oversaw full garment production cycle, from design through delivery</li>
+          <li>Coordinated internal teams and external partners to hold cost and schedule targets</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-index">03</span><h2>Projects &amp; Case Files</h2></div>
+    <div class="case-grid">
+
+      <div class="case-card reveal">
+        <div class="case-id">CASE-01 <span class="badge">Closed</span></div>
+        <h3>Trims &amp; Accessories Cost-Down Initiative</h3>
+        <div class="case-row"><b>Challenge</b>Rising per-unit cost on packaging and trims was eroding margin across three production lines.</div>
+        <div class="case-row"><b>Action</b>Re-ran RFQs across the vendor panel, consolidated volume with top performers, and renegotiated payment terms via Oracle ERP.</div>
+        <div class="case-result">↳ Result: up to 12% cost savings, OTIF maintained</div>
+      </div>
+
+      <div class="case-card reveal">
+        <div class="case-id">CASE-02 <span class="badge">Closed</span></div>
+        <h3>Alternate Supplier Base Development</h3>
+        <div class="case-row"><b>Challenge</b>Single-source dependency on key raw materials (buttons, zippers, labels) created delivery risk.</div>
+        <div class="case-row"><b>Action</b>Sourced and qualified backup vendors, ran parallel trials, and formalised ethical sourcing standards across the panel.</div>
+        <div class="case-result">↳ Result: single-source risk reduced, supply continuity secured</div>
+      </div>
+
+      <div class="case-card reveal">
+        <div class="case-id">CASE-03 <span class="badge">Ongoing</span></div>
+        <h3>Procurement Team &amp; KPI System</h3>
+        <div class="case-row"><b>Challenge</b>Growing order volume needed a procurement team that could hold quality and pace without adding headcount cost.</div>
+        <div class="case-row"><b>Action</b>Built GRN/invoice workflows, coached junior buyers and interns, and set weekly KPI tracking for spend and delivery.</div>
+        <div class="case-result">↳ Result: department consistently hitting KPI targets</div>
+      </div>
+
+      <div class="case-card reveal">
+        <div class="case-id">CASE-04 <span class="badge">Shipped</span></div>
+        <h3>AI-Assisted ERP Software Build</h3>
+        <div class="case-row"><b>Challenge</b>Procurement workflows — RFQs, POs, GRNs, vendor records — were scattered across spreadsheets with no single source of truth.</div>
+        <div class="case-row"><b>Action</b>Designed and built a working ERP application using AI-assisted development, pairing domain knowledge of real procurement workflows with AI coding tools to design the data model, screens, and logic.</div>
+        <div class="case-result">↳ Result: end-to-end procurement workflow digitised, built without a traditional dev team</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-index">04</span><h2>Skills &amp; Systems</h2></div>
+    <div class="skill-grid">
+      <div class="skill-card reveal">
+        <h4>Procurement &amp; Sourcing</h4>
+        <div class="tag-row">
+          <span class="tag">RFQ Management</span><span class="tag">Vendor Development</span>
+          <span class="tag">Contract Negotiation</span><span class="tag">PO Processing</span>
+          <span class="tag">GRN Management</span><span class="tag">Invoice Verification</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <h4>Supply Chain</h4>
+        <div class="tag-row">
+          <span class="tag">Strategic Sourcing</span><span class="tag">OTIF Delivery</span>
+          <span class="tag">Import / Export</span><span class="tag">Freight &amp; Customs</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <h4>Systems &amp; Tools</h4>
+        <div class="tag-row">
+          <span class="tag">Oracle ERP</span><span class="tag">MS Excel</span>
+          <span class="tag">Google Sheets</span><span class="tag">Supplier Portals</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <h4>Leadership &amp; Analytics</h4>
+        <div class="tag-row">
+          <span class="tag">Team Management</span><span class="tag">KPI Monitoring</span>
+          <span class="tag">Spend Analysis</span><span class="tag">Market Trend Analysis</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="achievements">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-index">05</span><h2>Key Achievements</h2></div>
+    <div class="ach-grid">
+      <div class="ach-card reveal"><p>Achieved up to <strong>12% cost savings</strong> through strategic sourcing and effective vendor negotiations.</p></div>
+      <div class="ach-card reveal"><p>Managed <strong>local and international procurement</strong> ensuring uninterrupted supply continuity.</p></div>
+      <div class="ach-card reveal"><p>Developed an <strong>alternate supplier base</strong> to reduce single-source dependency and risk.</p></div>
+      <div class="ach-card reveal"><p>Led procurement team to consistently hit <strong>departmental KPI targets</strong>.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-index">06</span><h2>Education &amp; Certifications</h2></div>
+    <div class="edu-grid">
+      <div class="edu-col reveal">
+        <h4>Education</h4>
+        <div class="edu-item"><div class="deg">BS — Business Administration (Expected 2027)</div><div class="inst">Virtual University Pakistan</div></div>
+        <div class="edu-item"><div class="deg">Associate Degree — Supply Chain Management</div><div class="inst">Virtual University Pakistan, 2022–2025</div></div>
+        <div class="edu-item"><div class="deg">Diploma of Supply Chain Management</div><div class="inst">Pakistan Institute of Management, Karachi, 2015</div></div>
+      </div>
+      <div class="edu-col reveal">
+        <h4>Certifications</h4>
+        <div class="edu-item"><div class="deg">Agentic AI &amp; Generative AI — AI Strategy</div><div class="inst">365 Data Science</div></div>
+        <div class="edu-item"><div class="deg">Operational Risk Management (Master Course)</div><div class="inst">Udemy</div></div>
+        <div class="edu-item"><div class="deg">International Supply Chain &amp; Marketing</div><div class="inst">Alison, CPD Certified, 2022</div></div>
+        <div class="edu-item"><div class="deg">Data Analytics &amp; Business Intelligence</div><div class="inst">Digi Skills</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="sec-head reveal" style="justify-content:center"><span class="sec-index">07</span><h2>Contact</h2></div>
+    <p class="reveal">Open to Procurement Manager opportunities. Reach out directly below.</p>
+    <div class="contact-grid reveal">
+      <a class="contact-card" href="mailto:Sultanrafiq1987@gmail.com"><div class="k">Email</div>Sultanrafiq1987@gmail.com</a>
+      <a class="contact-card" href="tel:+923219032170"><div class="k">Phone</div>+92-321-9032170</a>
+      <a class="contact-card" href="https://linkedin.com/in/sultan-muhammad-bba98958" target="_blank" rel="noopener"><div class="k">LinkedIn</div>sultan-muhammad-bba98958</a>
+      <a class="contact-card" href="https://github.com/SultanMuhammadRafiq" target="_blank" rel="noopener"><div class="k">GitHub</div>SultanMuhammadRafiq</a>
+    </div>
+  </div>
+</section>
+
+<footer>Karachi, Pakistan &middot; Built with AI Studio &amp; deployed by Sultan Muhammad</footer>
+
+<script>
+  const root = document.documentElement;
+  const themeToggle = document.getElementById('themeToggle');
+  const savedTheme = localStorage.getItem('portfolio-theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+    root.setAttribute('data-theme', 'dark');
+    themeToggle.textContent = '☀';
+  }
+  themeToggle.addEventListener('click', () => {
+    const isDark = root.getAttribute('data-theme') === 'dark';
+    if (isDark) {
+      root.removeAttribute('data-theme');
+      localStorage.setItem('portfolio-theme', 'light');
+      themeToggle.textContent = '☾';
+    } else {
+      root.setAttribute('data-theme', 'dark');
+      localStorage.setItem('portfolio-theme', 'dark');
+      themeToggle.textContent = '☀';
+    }
+  });
+
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
